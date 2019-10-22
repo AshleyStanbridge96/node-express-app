@@ -27,7 +27,8 @@ app.get('/', function (req, res) {
     '/yo/Dr.Rogers <br>' +
     '/fortune <br>' +
     '/fancy/?first=Denise&last=Case <br>' +
-    '/food' +
+    '/food <br> ' +
+    '/AmIReadyToGraduate?' +
     '<br> <br>' +
     'Fork the source code from <a href="https://github.com/denisecase/node-express-app">https://github.com/denisecase/node-express-app</a>'
   )
@@ -71,7 +72,11 @@ let food = ['Taco Bell', 'Taco Johns', 'McDonalds', 'Subway', 'Burger King',
 'Pizza Hut']
 
 app.get('/food', (req, res) => {
-  res.send(`You should have ${food} today! Reload the page if you hate that idea.`)
+  res.send(`You should have ${food[randomInt(0, food.length)]} today! Reload the page if you hate that idea.`)
+})
+
+app.get('/AmIReadyToGraduate?', (req, res) => {
+  res.send(`<h1><strong>YES! GET ME OUT OF HERE!!!!!!<strong></h1>`)
 })
 
 let fortunes = ['It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes - definitely.',
@@ -108,6 +113,8 @@ app.listen(port, hostname, () => {
   console.log(`   Try /greeting/yourname`)
   console.log(`   Try /yo/Dr.Rogers`)
   console.log(`   Try /fancy/?first=Denise&last=Case`)
+  console.log(`   Try /food`)
+  console.log(`   Try /AmIReadyToGraduate?`)
   console.log('\n Hit CTRL-C CTRL-C to stop\n')
 })
 
