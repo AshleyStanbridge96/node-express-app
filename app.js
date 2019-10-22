@@ -27,6 +27,7 @@ app.get('/', function (req, res) {
     '/yo/Dr.Rogers <br>' +
     '/fortune <br>' +
     '/fancy/?first=Denise&last=Case <br>' +
+    '/food' +
     '<br> <br>' +
     'Fork the source code from <a href="https://github.com/denisecase/node-express-app">https://github.com/denisecase/node-express-app</a>'
   )
@@ -37,6 +38,7 @@ app.get('/', function (req, res) {
 app.get('/hello', (req, res) => {
   res.send('Hello World!')
 })
+
 
 // or respond with html
 app.get('/big', (req, res) => {
@@ -63,6 +65,13 @@ app.get('/fancy', (req, res) => {
   const first = req.query.first
   const last = req.query.last
   res.send(`Hello ${first} ${last}!`)
+})
+
+let food = ['Taco Bell', 'Taco Johns', 'McDonalds', 'Subway', 'Burger King',
+'Pizza Hut']
+
+app.get('/food', (req, res) => {
+  res.send(`You should have ${food} today! Reload the page if you hate that idea.`)
 })
 
 let fortunes = ['It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes - definitely.',
